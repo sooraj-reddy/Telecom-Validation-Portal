@@ -1,0 +1,21 @@
+.card {
+     width: 200px;
+     height: 150px;
+     border: 1px solid #ccc;
+     margin: 50%;
+     display: flex;
+     color: #333;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     cursor: pointer;
+     background-color: #fafafa;
+     border-radius: 10%;
+     padding: 5px;
+
+   }
+   
+   .card:hover {
+     background-color: #eee;
+   }
+   

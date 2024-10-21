@@ -1,0 +1,67 @@
+.validationWindow {
+     padding: 20px;
+     margin-top: 50px;
+   }
+   
+   .validationWindow h2{
+     margin-top: 40px;
+   }
+
+   .questionCard {
+     border: 1px solid #ddd;
+     padding: 20px;
+     margin-bottom: 20px;
+     border-radius: 8px;/* Light background for better readability */
+   }
+   
+   .options {
+     margin: 10px 0;
+   }
+   
+   .navigation {
+     display: flex;
+     justify-content: space-between;
+     margin-top: 20px; /* Added space above navigation buttons */
+   }
+
+   .navigation button{
+     margin-left: 5px;
+     margin-right: 5px;
+   }
+   
+   button {
+     padding: 10px 20px;
+     cursor: pointer;
+     background-color: #007bff; /* Bootstrap primary color */
+     color: white;
+     border: none;
+     border-radius: 4px;
+     transition: background-color 0.3s ease; /* Smooth transition */
+   }
+   
+   button:hover {
+     background-color: #0056b3; /* Darker shade on hover */
+   }
+   
+   .opinionSection {
+     margin-top: 20px;
+     padding: 15px; /* Added padding for better spacing */
+     border: 1px solid #ccc; /* Border to distinguish the opinion section */
+     border-radius: 6px;
+     background-color: gray; /* Slightly darker background */
+   }
+   
+   .opinionSection h4 {
+     margin-bottom: 10px;
+   }
+   
+   .opinionSection div {
+     display: inline-flex;
+     align-items: center; /* Align the radio button and label in the same line */
+     margin: 10px 0; /* Add some space between each option */
+   }
+   
+   .opinionSection input[type="radio"] {
+     margin-right: 10px; /* Space between the radio button and label */
+   }
+   

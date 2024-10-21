@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+  position: fixed; /* Keep the header fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Span across the screen */
+  z-index: 1000; /* Ensure it's always on top */
+}
+
+
+.title {
+  font-size: 10px;
+  color: #333;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 60px; /* Adjust position below the profile icon */
+  right: 10px; /* Align to the right */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 150px; /* Set a minimum width */
+  padding: 10px 0;
+  z-index: 1001; /* Make sure it appears above other content */
+}
+
+.dropdown button {
+  display: block; /* Make each item take the full width */
+  width: 100%;
+  padding: 10px 15px;
+  text-align: left; /* Align text to the left */
+  background-color: white;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown button:hover {
+  background-color: #f5f5f5; /* Highlight on hover */
+}
+
+.validateBtn {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.profileIcon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.hiddenOptions {
+  display: none;
+}
+
+.dropdown:focus .hiddenOptions {
+  display: block;
+}
