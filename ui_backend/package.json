@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "start": "nodemon server.js"
+ "scripts": {
+    "start": "npm install && node server.js",
+    "prod" : "NPM_CONFIG_PRODUCTION=false npm install --prefix ui_frontend && npm run build --prefix ui_frontend"
   },
   "keywords": [],
   "author": "",

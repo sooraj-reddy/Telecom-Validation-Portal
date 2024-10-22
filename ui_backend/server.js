@@ -77,11 +77,17 @@ app.get('/csv/descriptive', (req, res) => {
     });
 });
 
+app.use(express.static(path.join(__dirname, '/ui_frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/ui_frontend/dist', 'index.html'));
+});
+
 app.get('/', (req, res) => {
   res.send("hello world");
 });
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
