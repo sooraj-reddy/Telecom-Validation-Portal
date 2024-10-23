@@ -10,7 +10,7 @@ const CSVWindow = () => {
 
   useEffect(() => {
     // Fetch the appropriate CSV file based on the type
-    fetch(`http://localhost:5001/csv/${type}`)
+    fetch(`/csv/${type}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

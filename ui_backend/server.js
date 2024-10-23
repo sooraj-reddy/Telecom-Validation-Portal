@@ -12,7 +12,20 @@ import UserModel from './models/users.js';
 dotenv.config(); // Load environment variables
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: true, // Allows any origin
+    methods: ["GET", "POST"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Cache-Control",
+      "Expires",
+      "Pragma",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Connect to MongoDB using environment variable

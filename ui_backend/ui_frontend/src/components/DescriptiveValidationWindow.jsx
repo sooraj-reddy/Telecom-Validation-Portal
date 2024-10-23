@@ -12,7 +12,7 @@ const DescriptiveValidationWindow = () => {
 
   useEffect(() => {
     // Fetch CSV data based on type (mcq or descriptive)
-    fetch(`http://localhost:5001/csv/${type}`)
+    fetch(`/csv/${type}`)
       .then(response => response.json())
       .then(data => setQuestions(data))
       .catch(error => console.error('Error fetching data:', error));
@@ -26,7 +26,7 @@ const DescriptiveValidationWindow = () => {
        response: selectedOptions[currentQuestionIndex], // Get the selected option for the current question
      };
    
-     fetch('http://localhost:5001/saveResponse', {
+     fetch('/saveResponse', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',

@@ -11,7 +11,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5001/register', { username, password, jobtitle })
+    axios.post('/register', { username, password, jobtitle })
       .then(result => {
         alert('Congratulations! You are now registered. Login to begin the validation.')
         navigate('/login');

@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5001/login', { username, password })
+    axios.post('/login', { username, password })
       .then(result => {
         if (result.data === "Success") {
           setCurrentUser(username); // Set the current user

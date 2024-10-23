@@ -12,7 +12,7 @@ const ValidationWindow = () => {
 
   useEffect(() => {
     // Fetch CSV data based on type
-    fetch(`http://localhost:5001/csv/${type}`)
+    fetch(`/csv/${type}`)
       .then((response) => response.json())
       .then((data) => setQuestions(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -26,7 +26,7 @@ const ValidationWindow = () => {
       response: selectedOptions[currentQuestionIndex], // Get selected option for the current question
     };
 
-    fetch('http://localhost:5001/saveResponse', {
+    fetch('/saveResponse', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
