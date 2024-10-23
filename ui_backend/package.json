@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
- "scripts": {
+  "scripts": {
     "start": "npm install && node server.js",
-    "prod" : "NPM_CONFIG_PRODUCTION=false npm install --prefix ui_frontend && npm run build --prefix ui_frontend"
+    "prod": "NPM_CONFIG_PRODUCTION=false npm install --prefix ui_frontend && npm run build --prefix ui_frontend"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "mongodb": "^6.9.0",
     "mongoose": "^8.7.2",
     "nodemon": "^3.1.7",
-    "ors": "^1.0.0"
+    "ors": "^1.0.0",
+    "react-icons": "^5.3.0"
   }
 }

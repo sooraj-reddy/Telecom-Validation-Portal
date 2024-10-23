@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import styles from './Login.module.css';
 import axios from 'axios';
 
@@ -7,11 +7,15 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [jobtitle, setJobtitle] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:5001/register', { username, password, jobtitle })
-      .then(result => console.log(result))
+      .then(result => {
+        alert('Congratulations! You are now registered. Login to begin the validation.')
+        navigate('/login');
+      })
       .catch(err => console.log(err));
   };
 

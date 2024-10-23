@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserContext.jsx';
 import Styles from './Header.module.css';
+import { FaUserCircle } from 'react-icons/fa'; 
 
 
 const Header = () => {
@@ -46,11 +47,11 @@ const Header = () => {
         </div>
         
         <div >
-          <img className={Styles.profileIcon}
-            src="./src/assets/user_icon.png"
-            alt="Profile"
-            onClick={handleProfileClick}
-          />
+          <FaUserCircle 
+              className={Styles.profileIcon} // You can style this in CSS
+              size={30} // Size of the icon
+              onClick={handleProfileClick} // Handle profile click
+            />
           {showDropdown && currentUser && (
             <div className={Styles.dropdown}>
               <button onClick={() => navigate('/user-profile')}>User Profile</button>

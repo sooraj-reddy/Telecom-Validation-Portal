@@ -44,24 +44,35 @@
    }
    
    .opinionSection {
-     margin-top: 20px;
-     padding: 15px; /* Added padding for better spacing */
-     border: 1px solid #ccc; /* Border to distinguish the opinion section */
-     border-radius: 6px;
-     background-color: gray; /* Slightly darker background */
-   }
-   
-   .opinionSection h4 {
-     margin-bottom: 10px;
-   }
-   
-   .opinionSection div {
-     display: inline-flex;
-     align-items: center; /* Align the radio button and label in the same line */
-     margin: 10px 0; /* Add some space between each option */
-   }
-   
-   .opinionSection input[type="radio"] {
-     margin-right: 10px; /* Space between the radio button and label */
-   }
+    margin-top: 20px;
+    padding: 15px; /* Added padding for better spacing */
+    border: 1px solid #ccc; /* Border to distinguish the opinion section */
+    border-radius: 6px;
+    background-color: gray; /* Slightly darker background */
+  }
+  
+  .opinionSection h4 {
+    margin-bottom: 10px;
+  }
+  
+  /* Adjust the layout of opinion options */
+  .opinionSection div {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align the radio button and label in the same line */
+    margin: 10px 0; /* Add some space between each option */
+    justify-content: space-between; /* Distribute space between radio button and label */
+  }
+  
+  /* Ensure the radio button takes less space */
+  .opinionSection input[type="radio"] {
+    margin-right: 10px; /* Space between the radio button and label */
+    flex-shrink: 0; /* Prevent shrinking of the radio button */
+  }
+  
+  /* Style for the label to stretch across the line */
+  .opinionSection label {
+    flex-grow: 1; /* Allow label to take up the remaining space */
+    text-align: left; /* Align text to the left */
+  }
+  
    

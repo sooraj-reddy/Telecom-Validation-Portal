@@ -7,7 +7,7 @@ import { UserContext } from './UserContext.jsx'; // Import UserContext
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { setCurrentUser } = useContext(UserContext); // Get the setCurrentUser function from context
+  const { currentUser, setCurrentUser } = useContext(UserContext); // Get the setCurrentUser function from context
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ const Login = () => {
       .then(result => {
         if (result.data === "Success") {
           setCurrentUser(username); // Set the current user
-          navigate('/home'); // Redirect to the home page after successful login
+          navigate('/dataset-selection');
         } else {
           alert(result.data); // Show error message
         }

@@ -36,10 +36,12 @@ const ValidationWindow = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Save response:', data);
+        alert('Your response was saved! Thanks for your contribution.');
         // Handle success (e.g., show a message to the user)
       })
       .catch((error) => {
         console.error('Error saving response:', error);
+        alert('Failed to save your response.'); 
         // Handle error
       });
   };
@@ -106,26 +108,26 @@ const ValidationWindow = () => {
 
     switch (type) {
       case 'mcq':
-        opinionOptions = ['Question is Wrong', 'Options are Wrong', 'Question and Options are both wrong', 'Answer is wrong', 'Question, Options and Answer are correct'];
+        opinionOptions = ['Question generated is irrelevant to its corresponding metadata', 'The proposed answer and explantion are wrong', 'The proposed answer is correct but its corresponding explanation is wrong', 'All the options are very different from each other and the propsed answer and its explanation are correct', 'All the options are very close to each other and the propsed answer and its corresponding explanation are correct'];
         break;
       case 'descriptive':
-        opinionOptions = ['Answer 1 is best match', 'Answer 2 is best match', 'Answer 3 is best match', 'Question is wrong'];
+        opinionOptions = ['Question generated is irrelevant to its corresponding metadata', 'Candidate Answer 1 is the best match', 'Candidate Answer 2 is the best match', 'Candidate Answer 3 is the best match', 'All the answers are irrelevant to the generated question'];
         break;
       // Add more cases for additional types
-      case 'type3':
-        opinionOptions = ['Option A', 'Option B', 'Option C'];
-        break;
-      case 'type4':
-        opinionOptions = ['Correct', 'Incorrect'];
-        break;
-      default:
-        opinionOptions = [];
-        break;
+      // case 'type3':
+      //   opinionOptions = ['Option A', 'Option B', 'Option C'];
+      //   break;
+      // case 'type4':
+      //   opinionOptions = ['Correct', 'Incorrect'];
+      //   break;
+      // default:
+      //   opinionOptions = [];
+      //   break;
     }
 
     return (
       <div className={styles.opinionSection}>
-        <h4>How do you feel about this question?</h4>
+        <h4>What do you feel about this question?</h4>
         {opinionOptions.map((option, index) => (
           <div key={index}>
             <input
