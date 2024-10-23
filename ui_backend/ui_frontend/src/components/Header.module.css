@@ -39,10 +39,10 @@
 }
 
 .dropdown button {
-  display: block; /* Make each item take the full width */
+  display: block; 
   width: 100%;
   padding: 10px 15px;
-  text-align: left; /* Align text to the left */
+  text-align: left;
   background-color: white;
   border: none;
   color: #333;
@@ -54,12 +54,10 @@
   background-color: #f5f5f5; /* Highlight on hover */
 }
 
-.validateBtn {
+.validateBtn button{
   margin-right: 10px;
   padding: 5px 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
+  border-color: black;
   cursor: pointer;
 }
 

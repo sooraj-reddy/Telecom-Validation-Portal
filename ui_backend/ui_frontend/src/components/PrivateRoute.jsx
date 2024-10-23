@@ -1,8 +1,16 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PrivateRoute = ({ isLoggedIn, children }) => {
-  return isLoggedIn ? children : <Navigate to="/login" replace />;
+  const navigate = useNavigate(); // Use useNavigate hook
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/home', { replace: true }); // Redirect to login page if not logged in
+    }
+  }, [isLoggedIn, navigate]); // Dependency array ensures this runs on change
+
+  return isLoggedIn ? children : null; // Only render children if logged in
 };
 
 export default PrivateRoute;

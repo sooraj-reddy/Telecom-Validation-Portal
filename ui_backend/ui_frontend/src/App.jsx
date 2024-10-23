@@ -9,6 +9,7 @@ import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import ValidationWindow from './components/ValidationWindow.jsx'; 
 import DatasetSelection from './components/DatasetSelection.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 // const ProtectedRoute = ({ isLoggedIn, children }) => {
 //   return isLoggedIn ? children : <Navigate to="/login" />;
@@ -31,11 +32,11 @@ const App = () => {
           <Route path="/csv/:type" element={<CSVWindow />} />
           
           {/* <Route path="/dataset-selection" element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}> <DatasetSelection /> </ProtectedRoute> } />
+            <PrivateRoute isLoggedIn={isLoggedIn}> <DatasetSelection /> </PrivateRoute> } />
           <Route path="/validate/:type" element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}> <ValidationWindow /> </ProtectedRoute>} />
+            <PrivateRoute isLoggedIn={isLoggedIn}> <ValidationWindow /> </PrivateRoute>} />
           <Route path="/user-profile" element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}> <UserProfile /> </ProtectedRoute> } /> */}
+            <PrivateRoute isLoggedIn={isLoggedIn}> <UserProfile /> </PrivateRoute> } /> */}
 
           <Route path="/dataset-selection" element={<DatasetSelection />} />
           <Route path="/validate/:type" element={<ValidationWindow />} />

@@ -6,7 +6,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 
 const Header = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext); // Access user context
+  const { currentUser, setCurrentUser, setIsLoggedIn } = useContext(UserContext); // Access user context
   const [showDropdown, setShowDropdown] = useState(false); // State to manage dropdown visibility
   const navigate = useNavigate();
 
@@ -20,6 +20,7 @@ const Header = () => {
 
   const handleLogout = () => {
     setCurrentUser(null); // Log out the user
+    setIsLoggedIn(false);
     navigate('/login'); // Redirect to login page
   };
 
@@ -42,7 +43,7 @@ const Header = () => {
       </div>
 
       <div className={Styles.controls}>
-        <div> 
+        <div className={Styles.ValidateBtn}> 
           <button onClick={handleValidationClick}>Validate</button>
         </div>
         
