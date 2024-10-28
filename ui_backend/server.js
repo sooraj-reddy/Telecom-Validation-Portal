@@ -90,6 +90,17 @@ app.get('/csv/descriptive', (req, res) => {
     });
 });
 
+app.get('/csv/ner', (req, res) => {
+  const nerFilePath = path.join(__dirname, './data/1000_entities - 1000_entities.csv');
+  let results = [];
+  fs.createReadStream(nerFilePath)
+    .pipe(csv())
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+      res.json(results);
+    });
+});
+
 app.use(express.static(path.join(__dirname, '/ui_frontend/dist')));
 
 app.get('*', (req, res) => {

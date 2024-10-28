@@ -25,6 +25,11 @@ const Home = () => {
         title="Descriptive Questions" 
         onClick={() => handleCardClick('descriptive')} 
       />
+
+      <Card 
+        title="Named Entity Recognition" 
+        onClick={() => handleCardClick('ner')} 
+      />
       
     </div>
   );

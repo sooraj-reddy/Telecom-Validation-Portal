@@ -4,7 +4,7 @@ import styles from './ValidationWindow.module.css';
 import { UserContext } from './UserContext.jsx';
 
 const ValidationWindow = () => {
-  const { type } = useParams(); // Capture "mcq" or other types from the route
+  const { type } = useParams(); // Capture "mcq", "descriptive", or "newDataset" from the route
   const [questions, setQuestions] = useState([]);
   const { currentUser } = useContext(UserContext);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -20,10 +20,10 @@ const ValidationWindow = () => {
 
   const handleSave = () => {
     const saveData = {
-      username: currentUser, // Actual logged-in username from context
-      questionId: currentQuestionIndex + 1, // 1-based index
-      fileType: type, // "mcq" or other types
-      response: selectedOptions[currentQuestionIndex], // Get selected option for the current question
+      username: currentUser,
+      questionId: currentQuestionIndex + 1,
+      fileType: type,
+      response: selectedOptions[currentQuestionIndex],
     };
 
     fetch('/saveResponse', {
@@ -37,12 +37,10 @@ const ValidationWindow = () => {
       .then((data) => {
         console.log('Save response:', data);
         alert('Your response was saved! Thanks for your contribution.');
-        // Handle success (e.g., show a message to the user)
       })
       .catch((error) => {
         console.error('Error saving response:', error);
         alert('Failed to save your response.'); 
-        // Handle error
       });
   };
 
@@ -50,7 +48,6 @@ const ValidationWindow = () => {
     return <div>Loading questions...</div>;
   }
 
-  // Handles option selection
   const handleOptionChange = (e) => {
     const { value } = e.target;
     setSelectedOptions({
@@ -101,6 +98,21 @@ const ValidationWindow = () => {
       <p><strong>Series:</strong> {currentQuestion.Series}</p>
     </div>
   );
+  
+  const renderNer = () => (
+    <div className={styles.options}>
+      <p><strong>Name:</strong> {currentQuestion.name}</p>
+      <p><strong>Full Form:</strong> {currentQuestion.full_form}</p>
+      <p><strong>Entity Type:</strong> {currentQuestion.entity_type}</p>
+      <p><strong>Comments (V/U/I):</strong> {currentQuestion['Comments(V/U/I)']}</p>
+      <p><strong>Context:</strong> {currentQuestion.context}</p>
+      <p><strong>Description:</strong> {currentQuestion.description}</p>
+      <p><strong>Explanation:</strong> {currentQuestion.explanation}</p>
+      <p><strong>Document Title:</strong> {currentQuestion.Document_number || currentQuestion.document_number}</p>
+      <p><strong>Section Title:</strong> {currentQuestion.Section_title}</p>
+    </div>
+  );
+
 
   // Function to render opinion options based on question type
   const renderOpinionOptions = () => {
@@ -108,21 +120,15 @@ const ValidationWindow = () => {
 
     switch (type) {
       case 'mcq':
-        opinionOptions = ['Question generated is irrelevant to its corresponding metadata', 'The proposed answer and explantion are wrong', 'The proposed answer is correct but its corresponding explanation is wrong', 'All the options are very different from each other and the propsed answer and its explanation are correct', 'All the options are very close to each other and the propsed answer and its corresponding explanation are correct'];
+        opinionOptions = ['Question generated is irrelevant to its corresponding metadata', 'The proposed answer and explanation are wrong', 'The proposed answer is correct but its corresponding explanation is wrong', 'All the options are very different from each other and the proposed answer and its explanation are correct', 'All the options are very close to each other and the proposed answer and its corresponding explanation are correct'];
         break;
       case 'descriptive':
         opinionOptions = ['Question generated is irrelevant to its corresponding metadata', 'Candidate Answer 1 is the best match', 'Candidate Answer 2 is the best match', 'Candidate Answer 3 is the best match', 'All the answers are irrelevant to the generated question'];
         break;
+      case 'ner':
+        opinionOptions = ['The generated entity-type is irrelevant to the corresponding meta-data','The full-form is wrong', 'The predicted entity-type is wrong', 'The predicted entity-type is wrong but the context and description are correct', 'he predicted entity-type is right but the context and description are wrong', 'All of the prediction is correct'];
+        break;
       // Add more cases for additional types
-      // case 'type3':
-      //   opinionOptions = ['Option A', 'Option B', 'Option C'];
-      //   break;
-      // case 'type4':
-      //   opinionOptions = ['Correct', 'Incorrect'];
-      //   break;
-      // default:
-      //   opinionOptions = [];
-      //   break;
     }
 
     return (
@@ -152,8 +158,7 @@ const ValidationWindow = () => {
         <h3>{currentQuestionIndex + 1}. Question: {currentQuestion.Question}</h3>
         {type === 'mcq' && renderMCQ()}
         {type === 'descriptive' && renderDescriptive()}
-        {/* Add more conditions for additional types */}
-        {/* You can call the relevant render functions for the other types as needed */}
+        {type === 'ner' && renderNer()}
         {renderOpinionOptions()}
       </div>
 

@@ -10,6 +10,8 @@ const DatasetSelection = () => {
       navigate(`/validate/${dataset}`);
     } else if (dataset === 'descriptive') {
       navigate(`/validate/${dataset}`);
+    } else if (dataset === 'ner') {
+      navigate(`/validate/${dataset}`);
     }
   };
 
@@ -23,10 +25,10 @@ const DatasetSelection = () => {
         <div className={Styles.card} onClick={() => handleCardClick('descriptive')}>
           <div className={Styles.datasetTitle}>Descriptive Dataset</div>
         </div>
-        {/* <div className={Styles.card} onClick={() => alert('Dataset not implemented yet')}>
-          <div className={Styles.datasetTitle}>Dataset 3</div>
+        <div className={Styles.card} onClick={() => handleCardClick('ner')}>
+          <div className={Styles.datasetTitle}>Named Entity Type Dataset</div>
         </div>
-        <div className={Styles.card} onClick={() => alert('Dataset not implemented yet')}>
+        {/* <div className={Styles.card} onClick={() => alert('Dataset not implemented yet')}>
           <div className={Styles.datasetTitle}>Dataset 4</div>
         </div> */}
       </div>
