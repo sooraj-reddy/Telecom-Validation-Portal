@@ -98,7 +98,7 @@ const ValidationWindow = () => {
       <p><strong>Series:</strong> {currentQuestion.Series}</p>
     </div>
   );
-  
+
   const renderNer = () => (
     <div className={styles.options}>
       <p><strong>Name:</strong> {currentQuestion.name}</p>
@@ -126,7 +126,7 @@ const ValidationWindow = () => {
         opinionOptions = ['Question generated is irrelevant to its corresponding metadata', 'Candidate Answer 1 is the best match', 'Candidate Answer 2 is the best match', 'Candidate Answer 3 is the best match', 'All the answers are irrelevant to the generated question'];
         break;
       case 'ner':
-        opinionOptions = ['The generated entity-type is irrelevant to the corresponding meta-data','The full-form is wrong', 'The predicted entity-type is wrong', 'The predicted entity-type is wrong but the context and description are correct', 'he predicted entity-type is right but the context and description are wrong', 'All of the prediction is correct'];
+        opinionOptions = ['The generated entity-type is irrelevant to the corresponding meta-data','The full-form is wrong', 'The predicted entity-type is wrong', 'The predicted entity-type is wrong but the context and description are correct', 'The predicted entity-type is right but the context and description are wrong', 'All of the prediction is correct'];
         break;
       // Add more cases for additional types
     }
@@ -155,7 +155,7 @@ const ValidationWindow = () => {
     <div className={styles.validationWindow}>
       <h2>Validation - {type.toUpperCase()} </h2>
       <div className={styles.questionCard}>
-        <h3>{currentQuestionIndex + 1}. Question: {currentQuestion.Question}</h3>
+        <h3>{currentQuestionIndex + 1}. {currentQuestion.Question}</h3>
         {type === 'mcq' && renderMCQ()}
         {type === 'descriptive' && renderDescriptive()}
         {type === 'ner' && renderNer()}
