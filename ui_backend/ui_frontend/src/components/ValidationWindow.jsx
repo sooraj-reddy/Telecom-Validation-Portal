@@ -108,7 +108,7 @@ const ValidationWindow = () => {
       <p><strong>Context:</strong> {currentQuestion.context}</p>
       <p><strong>Description:</strong> {currentQuestion.description}</p>
       <p><strong>Explanation:</strong> {currentQuestion.explanation}</p>
-      <p><strong>Document Title:</strong> {currentQuestion.Document_number || currentQuestion.document_number}</p>
+      <p><strong>Document Title:</strong> {currentQuestion.doc_number}</p>
       <p><strong>Section Title:</strong> {currentQuestion.Section_title}</p>
     </div>
   );
